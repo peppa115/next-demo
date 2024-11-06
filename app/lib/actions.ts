@@ -53,6 +53,7 @@ export async function createInvoice(prevState: State, formData: FormData) {
     `;
     
   } catch (error) {
+    console.log(error)
     return {
       message: 'create error'
     }
@@ -86,6 +87,8 @@ export async function updateInvoice(id: string, formData: FormData) {
     redirect('/dashboard/invoices');
     
   } catch (error) {
+    console.log(error)
+
     return {
       message: 'update error'
     }
@@ -96,6 +99,8 @@ export async function deleteInvoice(id: string) {
   try {
     await sql`DELETE FROM invoices WHERE id = ${id}`; 
   } catch (error) {
+    console.log(error)
+
     return {
       message: 'delete error'
     }
